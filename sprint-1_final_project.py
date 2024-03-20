@@ -65,4 +65,38 @@ def expire(items, in_advance_days=0):
 
     return (expire_list)
 
+#
+# Финальные проверки
+#
+separator = '#' * 80
+print(separator)
+print('Положим продукты в холодильник - тест функции add()')
+add(goods, 'Пельмени Универсальные', Decimal('3.5'), '2024-03-15')
+add(goods, 'Пельмени Универсальные', Decimal('2'), '2024-03-16')
+add(goods, 'Яйца утиные', Decimal('1.0'), '2024-04-17')
+add(goods, 'Газировка', Decimal('3'))
+add(goods, 'Сметана', Decimal('1'), '2024-03-28')
+print('Сейчас в холодильнике:')
+pprint(goods)
+
+print(f'\r\n{separator}')
+print('Добавим продукты в холодильник - с помощью функции add_by_note()')
+add_by_note(goods, 'Пицца 1')
+add_by_note(goods, 'Пироги с яблоком 10 2024-04-1')
+add_by_note(goods, 'Яйца 10 2024-03-19')
+print('Сейчас в холодильнике:')
+pprint(goods)
+
+print(f'\r\n{separator}')
+print('Ищем в холодильнике продукты, содержащие "пи":', find(goods, 'пи'))
+
+print(f'\r\n{separator}')
+print('Сколько в холодильнике яиц:', amount(goods, 'яйЦА'))
+print('Сколько в холодильнике тортов:', amount(goods, 'торт'))
+
+print(f'\r\n{separator}')
+print('Сколько и каких продуктов испортится сегодня:', expire(goods))
+print('Завтра:', expire(goods, 1))
+print('Послезавтра:', expire(goods, 2))
+
 
