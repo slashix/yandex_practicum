@@ -1,6 +1,5 @@
 import datetime
 from decimal import Decimal
-from pprint import pprint
 
 
 DATE_FORMAT = '%Y-%m-%d'
